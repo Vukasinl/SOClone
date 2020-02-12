@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex align-items-center">
-                            <h2>Ask Questions</h2>
+                            <h2>Edit Questions</h2>
                             <div class="ml-auto">
                                 <a href="{{ route('questions.index') }}" class="btn btn-outline-secondary">Back to all questions</a>
                             </div>
@@ -20,9 +20,9 @@ use Illuminate\Support\Str;
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('questions.store') }}" method="POST">
-                            @include('questions._form', ['buttonText' => 'Ask this question'])
-
+                        <form action="{{ route('questions.update', $question->id) }}" method="POST">
+                            @method('patch')
+                            @include('questions._form', ['buttonText' => 'Edit this question'])
                         </form>
                     </div>
                 </div>
