@@ -10,6 +10,10 @@ class Answer extends Model
 
 
 
+    public function getCreatedDateAttribute(){
+        return $this->created_at->diffForHumans();
+    }
+
     public function getBodyHtmlAttribute(){
         return \Parsedown::instance()->text($this->body);
     }
@@ -28,7 +32,6 @@ class Answer extends Model
 
         static::created(function($answer){
             $answer->question->increment('answers_count');
-            
         });
 
     }
