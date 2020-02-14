@@ -40,7 +40,7 @@ use Illuminate\Support\Str;
                                         <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
                                         <div class="ml-auto">
                                             @auth
-                                                @can('update', $question))
+                                                @can('update', $question)
                                                     <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-outline-info btn-sm">Edit</a>
                                                 @endcan
 
