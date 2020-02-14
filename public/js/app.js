@@ -46791,8 +46791,8 @@ _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["dom"].i2svg();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\fax\KORISNO\projects\SOClone\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\fax\KORISNO\projects\SOClone\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\fax\korisno\projects\soclone\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\fax\korisno\projects\soclone\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
