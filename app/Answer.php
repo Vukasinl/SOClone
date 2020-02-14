@@ -18,6 +18,10 @@ class Answer extends Model
         return \Parsedown::instance()->text($this->body);
     }
 
+    public function getStatusAttribute(){
+        return $this->id == $this->question->best_answer_id ? 'vote-accepted' : '';
+    }
+
     public function question(){
         return $this->belongsTo(Question::class);
     }
