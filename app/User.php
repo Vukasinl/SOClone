@@ -48,6 +48,24 @@ class User extends Authenticatable
         return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
     }
 
+    public function voteQuestion(Question $question, $vote){
+        $voteQuestions = $this->voteQuestions();
+        if($voteQuestions->where('votable_id', $question->id)->exists()){
+            $voteQuestions->updateExistingPivot($question, ['vote' => $vote]);
+        }else{
+            $voteQuestions->attach($question, ['vote' => $vote]);
+        }
+
+        $question->load('votes');
+
+        $upVotes = (int)$question->upVotes()->sum('vote');
+        $downVotes = (int)$question->downVotes()->sum('vote');
+
+        $question->votes_count = $upVotes + $downVotes;
+        $question->save();
+
+    }
+
     public function questions(){
         return $this->hasMany(Question::class);
     }
@@ -58,5 +76,13 @@ class User extends Authenticatable
 
     public function favorites(){
         return $this->belongsToMany(Question::class, 'favorites')->withTimestamps();
+    }
+
+    public function voteQuestions(){
+        return $this->morphedByMany(Question::class, 'votable')->withTimestamps();
+    }
+
+    public function voteAnswers(){
+        return $this->morphedByMany(Answer::class, 'votable')->withTimestamps();
     }
 }
