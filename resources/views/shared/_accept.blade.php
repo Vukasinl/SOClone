@@ -1,3 +1,4 @@
+
 @can('accept', $model)
     <a title="Mark this answer as best answer (Click again to undo)"
        class="{{ $model->status }} mt-2 favorited"

@@ -43,7 +43,7 @@ use Illuminate\Support\Str;
             </div>
         </div>
         @include('answers._index', [
-            'answers'      => $question->answers,
+            'answers'      => $question->answers->load('question'),
             'answersCount' => $question->answers_count
         ])
         @include('answers._create')
