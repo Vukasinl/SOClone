@@ -11,7 +11,7 @@ class Question extends Model
 
     protected $fillable = ['title', 'body'];
 
-
+    protected $appends = ['created_date'];
 
     public function setTitleAttribute($value){
         $this->attributes['title'] = $value;
