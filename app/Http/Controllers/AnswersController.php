@@ -83,6 +83,10 @@ class AnswersController extends Controller
 
         $answer->delete();
 
+        if(request()->expectsJson()){
+            return response()->json(['message'  =>  'Your answer was successfully deleted!']);
+        }
+
         return back()->with('success', 'Your answer was successfully deleted!');
     }
 }
