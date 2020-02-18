@@ -86,3 +86,7 @@ form.form-delete{display: inline;}
         border-bottom: 1px solid rgba($black, 0.1);
     }
 }
+
+[v-cloak]{
+    display: none;
+}

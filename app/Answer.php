@@ -10,7 +10,7 @@ class Answer extends Model
 
     protected $guarded = [];
 
-    protected $appends = ['created_date'];
+    protected $appends = ['created_date', 'body_html'];
 
     public function getCreatedDateAttribute(){
         return $this->created_at->diffForHumans();
